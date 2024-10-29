@@ -2,14 +2,14 @@
 import { useState } from 'react';
 
 export default function Register() {
-  const [email, setEmail] = useState('');  // Removed username state
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const handleRegister = async (e) => {
     e.preventDefault();
 
     try {
-      const res = await fetch('/api/register', {  // Changed to call Next.js API route
+      const res = await fetch('/api/register', { 
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -23,7 +23,7 @@ export default function Register() {
       const data = await res.json();
 
       if (res.ok) {
-        alert('Registration Successful');
+        alert('Registration successful. Please check your email to verify your account.');
         window.location.href = '/login';
       } else {
         alert(`Registration Failed: ${data.message}`);
@@ -64,7 +64,7 @@ export default function Register() {
   );
 }
 
-// Simple styles object (same as before)
+// Styles object remains the same as before
 const styles = {
   container: {
     display: 'flex',
@@ -117,19 +117,3 @@ const styles = {
     marginTop: '10px',
   },
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

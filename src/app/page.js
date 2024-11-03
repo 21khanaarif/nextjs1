@@ -77,8 +77,18 @@ export default function Home() {
               color: 'white',
               backgroundColor: '#0070f3',
               border: 'none',
-              borderRadius: '5px',
+              borderRadius: '10px', // Increased border-radius for more rounded corners
               cursor: 'pointer',
+              boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)', // Added shadow effect
+              transition: 'background-color 0.3s ease, transform 0.2s',
+            }}
+            onMouseOver={(e) => {
+              e.currentTarget.style.backgroundColor = '#005bb5';
+              e.currentTarget.style.transform = 'translateY(-2px)'; // Subtle lift effect
+            }}
+            onMouseOut={(e) => {
+              e.currentTarget.style.backgroundColor = '#0070f3';
+              e.currentTarget.style.transform = 'translateY(0)'; // Reset lift effect
             }}
           >
             Login
@@ -92,8 +102,18 @@ export default function Home() {
               color: 'white',
               backgroundColor: '#28a745',
               border: 'none',
-              borderRadius: '5px',
+              borderRadius: '10px', // Increased border-radius for more rounded corners
               cursor: 'pointer',
+              boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)', // Added shadow effect
+              transition: 'background-color 0.3s ease, transform 0.2s',
+            }}
+            onMouseOver={(e) => {
+              e.currentTarget.style.backgroundColor = '#218838';
+              e.currentTarget.style.transform = 'translateY(-2px)'; // Subtle lift effect
+            }}
+            onMouseOut={(e) => {
+              e.currentTarget.style.backgroundColor = '#28a745';
+              e.currentTarget.style.transform = 'translateY(0)'; // Reset lift effect
             }}
           >
             Register

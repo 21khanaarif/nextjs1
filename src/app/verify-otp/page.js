@@ -56,7 +56,16 @@ export default function VerifyOtp({ searchParams }) {
 
   return (
     <div style={styles.container}>
-      <p>Your account is not verified. Click "Send OTP" to verify.</p>
+      <p style={{ 
+  color: 'grey', 
+  fontWeight: 'bold', 
+  fontSize: '16px', 
+  textAlign: 'center', 
+  margin: '20px 0' 
+}}>
+  Your account is not verified. Click "Send OTP" to verify.
+</p>
+<br></br>
       <button onClick={handleSendOtp} style={styles.button}>Send OTP</button>
       <input
         type="text"

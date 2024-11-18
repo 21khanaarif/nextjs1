@@ -1,5 +1,3 @@
-// src/app/api/login/route.js
-
 export async function POST(req) {
   const { email, password } = await req.json();
 
@@ -12,14 +10,14 @@ export async function POST(req) {
       },
       body: JSON.stringify({
         identifier: email,
-        password: password,
+        password,
       }),
     });
 
     const data = await strapiRes.json();
 
     if (strapiRes.ok) {
-      // Check if the user is verified
+      // Fetch full user details using the returned JWT
       const userId = data.user.id;
       const userRes = await fetch(`http://localhost:1337/api/users/${userId}`, {
         method: 'GET',
@@ -31,19 +29,22 @@ export async function POST(req) {
 
       const user = await userRes.json();
 
-      // Check if the user is verified and add that to the response
-      return new Response(
-        JSON.stringify({
-          jwt: data.jwt,
-          user: { ...data.user, is_verified: user.is_verified },
-        }),
-        { status: 200 }
-      );
+      // Respond with JWT and user details, including is_verified and firstname
+      const responseData = {
+        jwt: data.jwt,
+        user: {
+          id: data.user.id,
+          email: data.user.email,
+          firstname: user.firstname, // Include firstname
+          is_verified: user.is_verified,
+        },
+      };
+
+      // Store JWT and user info on the client side (client-side storage will need to happen on the frontend)
+      return new Response(JSON.stringify(responseData), { status: 200 });
     } else {
       // If there's an error, pass the error message back
-      return new Response(JSON.stringify(data), {
-        status: strapiRes.status,
-      });
+      return new Response(JSON.stringify(data), { status: strapiRes.status });
     }
   } catch (error) {
     console.error('Login Error:', error);

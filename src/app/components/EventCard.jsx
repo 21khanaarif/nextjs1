@@ -1,6 +1,14 @@
 import React from 'react';
 import Link from 'next/link';
 
+// Function to generate a slug from the event name
+const generateSlug = (name) => {
+  return name
+    .toLowerCase()
+    .replace(/\s+/g, '-')      // Replace spaces with hyphens
+    .replace(/[^\w-]+/g, '');  // Remove non-alphanumeric characters (except hyphens and underscores)
+};
+
 const EventCard = ({ event }) => {
   // Function to format the date
   const formatDate = (dateString) => {
@@ -19,9 +27,11 @@ const EventCard = ({ event }) => {
     });
   };
 
+  const slug = generateSlug(event.attributes.Event_Name); // Generate the slug from Event_Name
+
   return (
     <div className="col-md-4" key={event.id} style={{ marginBottom: '20px' }}>
-      <Link href={`/event/${event.id}`} passHref>
+      <Link href={`/event/${event.id}/${slug}`} passHref> {/* Link updated to use slug */}
         <div className="card event-card">
           {event.attributes.Display_Picture && (
             <img

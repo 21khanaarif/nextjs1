@@ -13,9 +13,21 @@ const SearchBar = ({ searchQuery, setSearchQuery, handleSearch }) => {
         />
       </div>
       <div className="col-md-4">
-        <button className="btn btn-primary w-100" onClick={handleSearch}>
-          Search
-        </button>
+      <button
+  className="btn w-100"
+  style={{
+    backgroundColor: '#ff5733', // Button background color
+    borderColor: '#ff5733', // Border color to match background
+    color: 'white', // Text color
+    fontWeight: 'bold', // Optional: make the text bold
+    transition: 'background-color 0.3s ease', // Smooth transition for hover effect
+  }}
+  onClick={handleSearch}
+  onMouseOver={(e) => (e.currentTarget.style.backgroundColor = '#e04d2d')} // Darker color on hover
+  onMouseOut={(e) => (e.currentTarget.style.backgroundColor = '#ff5733')} // Reset color on mouse out
+>
+  Search
+</button>
       </div>
     </div>
   );

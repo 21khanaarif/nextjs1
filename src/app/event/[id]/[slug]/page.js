@@ -137,3 +137,20 @@ const styles = {
 };
 
 export default EventDetails;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

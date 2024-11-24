@@ -8,6 +8,7 @@ const EventDetails = ({ params }) => {
   const [event, setEvent] = useState(null);
   const [loading, setLoading] = useState(true);
 
+  
 
   useEffect(() => {
     const fetchEventDetails = async () => {
@@ -56,8 +57,90 @@ const EventDetails = ({ params }) => {
     ? `http://localhost:1337${Display_Picture.data.attributes.formats.large.url}`
     : `http://localhost:1337${Display_Picture.data.attributes.url}`;
 
+  const styles = {
+    container: {
+      position: "relative",
+      width: "100%",
+      minHeight: "100vh",
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      justifyContent: "center",
+      color: "#fff", // Text color for better contrast over the background
+      padding: "20px",
+      boxSizing: "border-box",
+      overflow: "hidden",
+    },
+    backgroundImage: {
+      position: "absolute",
+      top: 0,
+      left: 0,
+      width: "100%",
+      height: "100%",
+      backgroundSize: "cover",
+      backgroundPosition: "center",
+      zIndex: -1, // Ensures it's behind other elements
+      filter: "brightness(50%)", // Darkens the background image for better text readability
+    },
+    image: {
+      width: "100%",
+      maxWidth: "600px",
+      height: "auto",
+      objectFit: "cover",
+      borderRadius: "10px",
+      zIndex: 2, // Ensures the event image is above the background
+    },
+    detailsContainer: {
+      width: "100%",
+      maxWidth: "600px",
+      textAlign: "center",
+      background: "rgba(0, 0, 0, 0.7)", // Semi-transparent background for readability
+      borderRadius: "10px",
+      padding: "20px",
+      zIndex: 2,
+    },
+    title: {
+      fontSize: "32px",
+      fontWeight: "bold",
+      marginBottom: "10px",
+      color: "#fff",
+    },
+    description: {
+      fontSize: "18px",
+      marginBottom: "10px",
+      color: "#ddd",
+    },
+    info: {
+      fontSize: "16px",
+      marginBottom: "8px",
+      color: "#ccc",
+    },
+    button: {
+      padding: "10px 20px",
+      fontSize: "16px",
+      color: "#fff",
+      backgroundColor: "#007bff",
+      border: "none",
+      borderRadius: "5px",
+      cursor: "pointer",
+      marginTop: "20px",
+      transition: "background-color 0.3s",
+    },
+    buttonHover: {
+      backgroundColor: "#0056b3",
+    },
+  };
+
   return (
     <div style={styles.container}>
+      {imageUrl && (
+        <div
+          style={{
+            ...styles.backgroundImage,
+            backgroundImage: `url(${imageUrl})`,
+          }}
+        />
+      )}
       {imageUrl && (
         <img
           src={imageUrl}
@@ -83,60 +166,24 @@ const EventDetails = ({ params }) => {
         <p style={styles.info}>
           <strong>Location:</strong> {Venue}
         </p>
-        <button style={styles.button}>Show Interest</button>
+        <button
+          style={styles.button}
+          onMouseEnter={(e) => (e.target.style.backgroundColor = "#0056b3")}
+          onMouseLeave={(e) => (e.target.style.backgroundColor = "#007bff")}
+        >
+          Show Interest
+        </button>
       </div>
     </div>
   );
 };
 
-const styles = {
-  container: {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    marginTop: "20px",
-    padding: "20px",
-  },
-  image: {
-    width: "100%",
-    maxWidth: "600px",
-    height: "auto",
-    objectFit: "cover",
-    borderRadius: "10px",
-    marginBottom: "20px",
-  },
-  detailsContainer: {
-    width: "100%",
-    maxWidth: "600px",
-    textAlign: "center",
-  },
-  title: {
-    fontSize: "28px",
-    fontWeight: "bold",
-    marginBottom: "10px",
-  },
-  description: {
-    fontSize: "18px",
-    marginBottom: "10px",
-  },
-  info: {
-    fontSize: "16px",
-    marginBottom: "8px",
-    color: "#555",
-  },
-  button: {
-    padding: "10px 20px",
-    fontSize: "16px",
-    color: "#fff",
-    backgroundColor: "#007bff",
-    border: "none",
-    borderRadius: "5px",
-    cursor: "pointer",
-    marginTop: "20px",
-  },
-};
-
 export default EventDetails;
+
+
+
+
+
 
 
 

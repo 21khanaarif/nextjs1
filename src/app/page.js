@@ -269,7 +269,7 @@ export default function Home() {
         ) : (
           <>
             <button onClick={() => setIsLoginOpen(true)} style={buttonStyles}>Login</button>
-            <button onClick={() => setIsRegisterOpen(true)} style={{ ...buttonStyles, backgroundColor: '#28a745' }}>Register</button>
+            <button onClick={() => setIsRegisterOpen(true)} style={{ ...buttonStyles, backgroundColor: '#4287f5' }}>Register</button>
           </>
         )}
       </div>
@@ -293,15 +293,14 @@ export default function Home() {
   );
 }
 
-// Styles...
-
 const containerStyles = {
   padding: '20px',
-  backgroundColor: '#f0f0f0',
+  backgroundColor: '#fafafa',
   minHeight: '100vh',
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
+  fontFamily: 'Arial, sans-serif',
 };
 
 const userControlsStyles = {
@@ -309,75 +308,96 @@ const userControlsStyles = {
   top: '20px',
   right: '20px',
   display: 'flex',
-  gap: '15px',
+  gap: '10px',
   zIndex: 10,
 };
 
 const userButtonStyles = {
-  padding: '12px 25px',
-  fontSize: '18px',
+  padding: '10px 20px',
+  fontSize: '16px',
   color: '#fff',
-  backgroundColor: '#0070f3',
+  backgroundColor: '#007BFF',
   border: 'none',
-  borderRadius: '20px',
+  borderRadius: '50px',
   cursor: 'pointer',
-  boxShadow: '0 6px 12px rgba(0, 0, 0, 0.15)',
-  transition: 'all 0.3s ease',
+  boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
+  transition: 'background-color 0.3s ease, transform 0.2s',
 };
 
 const dropdownStyles = {
   position: 'absolute',
   top: '100%',
   right: 0,
-  backgroundColor: 'white',
-  boxShadow: '0 6px 12px rgba(0, 0, 0, 0.1)',
-  borderRadius: '10px',
-  overflow: 'hidden',
-  zIndex: 1,
+  backgroundColor: '#fff',
+  boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
+  borderRadius: '8px',
+  padding: '10px',
+  zIndex: 1000,
 };
 
 const logoutButtonStyles = {
-  padding: '12px 25px',
+  padding: '10px 20px',
   width: '100%',
   textAlign: 'left',
-  backgroundColor: '#f9f9f9',
-  border: 'none',
+  backgroundColor: '#f8f9fa',
+  border: '1px solid #ddd',
+  borderRadius: '8px',
   cursor: 'pointer',
-  fontSize: '16px',
-  transition: 'background-color 0.2s ease',
+  fontSize: '14px',
+  transition: 'background-color 0.3s ease',
 };
 
 const buttonStyles = {
-  padding: '12px 25px',
-  fontSize: '18px',
+  padding: '10px 20px',
+  fontSize: '16px',
   color: 'white',
-  backgroundColor: '#0070f3',
+  backgroundColor: '#32a895',
   border: 'none',
-  borderRadius: '20px',
+  borderRadius: '50px',
   cursor: 'pointer',
-  boxShadow: '0 6px 12px rgba(0, 0, 0, 0.2)',
+  boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
   transition: 'background-color 0.3s ease, transform 0.2s',
 };
 
 const headingStyles = {
   color: '#333',
-  fontSize: '40px',
-  fontFamily: 'Roboto, sans-serif',
+  fontSize: '36px',
+  fontWeight: 'bold',
   marginBottom: '20px',
   textAlign: 'center',
+  textTransform: 'uppercase',
 };
 
+const searchBarStyles = {
+  marginBottom: '20px',
+  width: '100%',
+  maxWidth: '600px',
+};
 
+const eventListStyles = {
+  display: 'grid',
+  gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
+  gap: '20px',
+  width: '100%',
+  maxWidth: '1200px',
+  margin: '0 auto',
+};
 
+const paginationStyles = {
+  marginTop: '20px',
+  display: 'flex',
+  justifyContent: 'center',
+  gap: '10px',
+};
 
-
-
-
-
-
-
-
-
-
-
-
+const paginationButtonStyles = {
+  padding: '10px 15px',
+  fontSize: '16px',
+  backgroundColor: '#007BFF',
+  color: '#fff',
+  border: 'none',
+  borderRadius: '50%',
+  cursor: 'pointer',
+  boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
+  transition: 'background-color 0.3s ease',
+};

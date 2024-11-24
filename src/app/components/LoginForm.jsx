@@ -150,7 +150,7 @@ const styles = {
   title: {
     fontSize: '28px',
     fontWeight: 'bold',
-    color: '#0070f3',
+    color: '#32a895',
     marginBottom: '20px',
     textAlign: 'center',
     textTransform: 'uppercase',
@@ -169,7 +169,7 @@ const styles = {
     width: '100%',
     padding: '12px 15px',
     marginTop: '20px',
-    backgroundColor: '#0070f3',
+    backgroundColor: '#32a895',
     color: '#fff',
     fontSize: '18px',
     fontWeight: 'bold',
@@ -214,20 +214,3 @@ const styles = {
     color: '#333',
   },
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
